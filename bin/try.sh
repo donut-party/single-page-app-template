@@ -2,6 +2,7 @@
 PROJECT_ROOT=`git rev-parse --show-toplevel`
 cd $PROJECT_ROOT
 
+rm -rf tmp/test-app
 clojure \
   -Sdeps '{:deps {party.donut/single-page-app {:local/root "./"}}}'\
   -Tnew create \
