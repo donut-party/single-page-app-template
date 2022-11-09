@@ -1,0 +1,25 @@
+;; shadow-cljs configuration
+{:deps           {:aliases [:cljs :dev]}
+ :dev-http       {3000 {:roots     ["resources/public" "frontend-target/dev/public"]
+                        :proxy-url "http://localhost:3010"}}
+ :cache-blockers #{lambdaisland.ornament}
+
+ :builds {:dev
+          {:target           :browser
+           :output-dir       "frontend-target/dev/public/js"
+           :asset-path       "/js"
+           :compiler-options {:optimizations           :none
+                              :source-map              true
+                              :source-map-detail-level :all
+                              :closure-defines         {"re_frame.trace.trace_enabled_QMARK_" true}}
+           :build-hooks      [(donut.hooks/write-styles-hook)]
+
+           :modules
+           {:main {:entries [donut.minimal.frontend.core]
+                   :init-fn donut.minimal.frontend.core/init}}
+
+           ;; start a development http server on http://localhost:3000
+           :devtools
+           {:preloads    [day8.re-frame-10x.preload]
+            :before-load donut.minimal.frontend.core/stop
+            :after-load  donut.minimal.frontend.core/start}}}}

@@ -22,3 +22,4 @@ All notable changes to this project will be documented in this file. This change
 
 [Unreleased]: https://{{scm/domain}}/{{scm/user}}/{{scm/repo}}/compare/0.1.1...HEAD
 [0.1.1]: https://{{scm/domain}}/{{scm/user}}/{{scm/repo}}/compare/0.1.0...0.1.1
+

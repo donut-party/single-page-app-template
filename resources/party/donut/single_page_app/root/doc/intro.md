@@ -1,3 +1,3 @@
-# Introduction to {{raw-name}}
+# Introduction
 
 TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
