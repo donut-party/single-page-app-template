@@ -1,1 +1,1 @@
-donut.minimal.backend.query.entity
+{{top/ns}}.backend.query.entity

@@ -1,4 +1,4 @@
-(ns donut.minimal.frontend.ui
+(ns {{top/ns}}.frontend.ui
   (:require
    [lambdaisland.ornament :as o]))
 

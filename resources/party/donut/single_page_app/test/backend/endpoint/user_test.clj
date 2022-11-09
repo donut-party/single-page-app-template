@@ -1,1 +1,1 @@
-donut.minimal.fixtures
+{{top/ns}}.fixtures

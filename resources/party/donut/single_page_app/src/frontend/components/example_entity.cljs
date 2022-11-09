@@ -1,6 +1,6 @@
-(ns donut.minimal.frontend.components.example-entity
+(ns {{top/ns}}.frontend.components.example-entity
   (:require
-   [donut.minimal.frontend.ui :as ui]))
+   [{{top/ns}}.frontend.ui :as ui]))
 
 (defn show
   []

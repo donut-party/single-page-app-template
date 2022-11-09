@@ -4,7 +4,7 @@
    [clojure.tools.namespace.repl :as nsrepl]
    [dev.repl :as dev-repl]
    [donut.endpoint.test.harness :as deth]
-   [donut.minimal.backend.system :as sys]
+   [{{top/ns}}.backend.system :as sys]
    [donut.routes :as dr]
    [donut.system :as ds]
    [donut.system.repl :as dsr]

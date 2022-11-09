@@ -1,8 +1,8 @@
-(ns donut.minimal.fixtures
+(ns {{top/ns}}.fixtures
   (:require
    [donut.datapotato.next-jdbc :as dfn]
    [donut.endpoint.test.harness :as deth]
-   [donut.minimal.backend.system] ;; for multimethod
+   [{{top/ns}}.backend.system] ;; for multimethod
    ))
 
 (defn db-connection

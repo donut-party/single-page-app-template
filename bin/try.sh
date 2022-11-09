@@ -7,5 +7,5 @@ clojure \
   -Sdeps '{:deps {party.donut/single-page-app {:local/root "./"}}}'\
   -Tnew create \
   :template party.donut/single-page-app \
-  :name party.donut/test-app \
+  :name my.org/test-app \
   :target-dir tmp/test-app

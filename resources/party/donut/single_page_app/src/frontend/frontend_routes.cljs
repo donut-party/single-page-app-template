@@ -1,10 +1,10 @@
-(ns donut.minimal.frontend.frontend-routes
+(ns {{top/ns}}.frontend.frontend-routes
   (:require
    [reitit.coercion.malli :as rm]
    [donut.frontend.form.flow :as dff]
    [donut.frontend.sync.flow :as dsf]
-   [donut.minimal.frontend.components.home :as h]
-   [donut.minimal.frontend.components.example-entity :as ee]))
+   [{{top/ns}}.frontend.components.home :as h]
+   [{{top/ns}}.frontend.components.example-entity :as ee]))
 
 (def routes
   [["/"

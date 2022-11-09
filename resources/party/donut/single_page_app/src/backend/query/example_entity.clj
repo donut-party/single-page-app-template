@@ -1,4 +1,4 @@
-(ns donut.minimal.backend.query.example-entity
+(ns {{top/ns}}.backend.query.example-entity
   "Example namespace showing how you might organize queries"
   (:require
    [honey.sql :as sql]

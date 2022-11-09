@@ -1,4 +1,4 @@
-(ns donut.minimal.backend.handler
+(ns {{top/ns}}.backend.handler
   (:require
    [reitit.ring :as rr]))
 

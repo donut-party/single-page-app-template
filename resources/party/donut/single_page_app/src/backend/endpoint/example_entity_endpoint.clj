@@ -1,6 +1,6 @@
-(ns donut.minimal.backend.endpoint.example-entity-endpoint
+(ns {{top/ns}}.backend.endpoint.example-entity-endpoint
   (:require
-   [donut.minimal.backend.query.example-entity :as qe]
+   [{{top/ns}}.backend.query.example-entity :as qe]
    [next.jdbc.sql :as jsql]))
 
 (def collection-parameters

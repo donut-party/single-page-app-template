@@ -1,4 +1,4 @@
-(ns donut.minimal.cross.endpoint-routes
+(ns {{top/ns}}.cross.endpoint-routes
   (:require [donut.routes :as dr]
             #?@(:clj
                 [;; endpoint namespaces go here
