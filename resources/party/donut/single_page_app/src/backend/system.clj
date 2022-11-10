@@ -6,7 +6,6 @@
    [{{top/ns}}.backend.handler :as dh]
    [{{top/ns}}.cross.endpoint-routes :as endpoint-routes]
    [donut.system :as ds]
-   [environ.core :as env]
    [migratus.core :as migratus]
    [next.jdbc :as jdbc]
    [ring.adapter.jetty :as rj]))
@@ -44,8 +43,8 @@
 
     :db
     {:connection
-     #::ds{:start  (fn [{:keys [::ds/config]}] (jdbc/get-datasource (:uri config)))
-           :config {:uri (env/env :db-uri "jdbc:postgresql://localhost/donut_minimal_dev?user=root&password=")}}
+     #::ds{:start  (fn [{:keys [::ds/config]}] (jdbc/get-datasource (:dbspec config)))
+           :config {:dbspec (ds/ref [:env :dbspec])}}
 
      :migratus
      #::ds{:start  (fn [{:keys [::ds/config]}]
@@ -66,7 +65,6 @@
   [_]
   (ds/system :dev
     {[:env]                        (env-config :test)
-     [:db :connection :conf :uri]  "jdbc:postgresql://localhost/donut_minimal_test?user=root&password="
      [:db :run-migrations? :start] (fn [_ _ _]
                                      (when @run-migrations?
                                        (reset! run-migrations? false)
