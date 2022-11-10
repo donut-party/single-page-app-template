@@ -1,1 +1,0 @@
-{{top/ns}}.fixtures

@@ -3,14 +3,14 @@
    [clojure.test :refer [deftest is use-fixtures]]
    [donut.datapotato.core :as dc]
    [donut.endpoint.test.harness :as deth]
-   [{{top/ns}}.data :as data]))
+   [{{top/ns}}.fixtures :as fixtures]))
 
 (use-fixtures :each (deth/system-fixture [:test]))
 
 (comment
   ;; example tests for a hypothetical example-entity:
   (deftest gets-example-entities
-    (dc/with-fixtures data/datapotato-db
+    (dc/with-fixtures fixtures/datapotato-db
       (let [{:keys [u0 u1]} (dc/insert-fixtures {:example-entity [[2]]})]
         (is (= [u0 u1]
                (deth/read-body (deth/handle-request :get :example-entities)))))))
@@ -20,13 +20,13 @@
                                #:example-entity{:example-entityname "test"})))
 
   (deftest gets-single-example-entity
-    (dc/with-fixtures data/datapotato-db
+    (dc/with-fixtures fixtures/datapotato-db
       (let [{:keys [u0]} (dc/insert-fixtures {:example-entity [[2]]})]
         (is (= [[:entities [:example-entity :example-entity/id [u0]]]]
                (deth/read-body (deth/handle-request :get [:example-entity (select-keys u0 [:example-entity/id])])))))))
 
   (deftest updates-example-entity
-    (dc/with-fixtures data/datapotato-db
+    (dc/with-fixtures fixtures/datapotato-db
       (let [{:keys [u0]} (dc/insert-fixtures {:example-entity [[1]]})]
         (is (= #:example-entity{:id       (:example-entity/id u0)
                                 :example-entityname "new-example-entity-name"}
@@ -37,7 +37,7 @@
                    (deth/read-body)))))))
 
   (deftest deletes-example-entity
-    (dc/with-fixtures data/datapotato-db
+    (dc/with-fixtures fixtures/datapotato-db
       (let [{:keys [u0]} (dc/insert-fixtures {:example-entity [[1]]})]
         (deth/handle-request :delete [:example-entity (select-keys u0 [:example-entity/id])])
         (is (= []
