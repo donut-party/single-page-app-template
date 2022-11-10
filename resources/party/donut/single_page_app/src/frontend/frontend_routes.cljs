@@ -10,7 +10,7 @@
   [["/"
     {:name       :home
      :components {:main [h/component]}
-     :lifecycle  {:enter [[::dsf/get :todo-lists]]}}]
+     :lifecycle  {:enter [[::dsf/get :example-entities]]}}]
    ["/example-entities/{example_entity/id}"
     {:name       :example-entity
      :components {:main [ee/show]}

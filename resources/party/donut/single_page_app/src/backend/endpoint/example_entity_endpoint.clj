@@ -3,27 +3,22 @@
    [{{top/ns}}.backend.query.example-entity :as qe]
    [next.jdbc.sql :as jsql]))
 
-(def collection-parameters
-  {:path [:map [:todo_list/id int?]]})
-
 (def collection-handlers
   {:get
-   {:parameters collection-parameters
-    :handler
+   {:handler
     (fn [{:keys [db]}]
       {:status 200
        :body   (qe/entities db)})}
 
    :post
-   {:parameters collection-parameters
-    :handler
+   {:handler
     (fn [{:keys [all-params db]}]
       {:status 200
        :body   (jsql/insert! db :entity all-params)})}})
 
 (def member-parameters
   {:path [:map
-          [:entity/id int?]]})
+          [:example_entity/id int?]]})
 
 (def member-handlers
   {:get
