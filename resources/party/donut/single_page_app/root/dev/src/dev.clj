@@ -32,9 +32,10 @@
 (defmethod ds/named-system :donut.system/repl
   [_]
   (ds/system :dev
-    {[:db :migratus :conf :run?] (let [run? (not (:migrations-ran? @dev-repl/persistent-state))]
-                                   (swap! dev-repl/persistent-state assoc :migrations-ran? true)
-                                   run?)}))
+    {[:db :migratus ::ds/config :run?]
+     (let [run? (not (:migrations-ran? @dev-repl/persistent-state))]
+       (swap! dev-repl/persistent-state assoc :migrations-ran? true)
+       run?)}))
 
 (when-not dsrs/system
   (dsr/start))

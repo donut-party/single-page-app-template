@@ -64,12 +64,20 @@
 (defmethod ds/named-system :test
   [_]
   (ds/system :dev
-    {[:env]                        (env-config :test)
-     [:db :run-migrations? :start] (fn [_ _ _]
-                                     (when @run-migrations?
-                                       (reset! run-migrations? false)
-                                       true))
-     [:db :migratus :conf :run?]   (ds/local-ref [:run-migrations?])
-     [:http :server]               ::disabled
+    {[:env]
+     (env-config :test)
 
-     [:http :middleware :conf :security :anti-forgery] false}))
+     [:db :run-migrations? :start]
+     (fn [_ _ _]
+       (when @run-migrations?
+         (reset! run-migrations? false)
+         true))
+
+     [:db :migratus ::ds/config :run?]
+     (ds/local-ref [:run-migrations?])
+
+     [:http :server]
+     ::disabled
+
+     [:http :middleware ::ds/config :security :anti-forgery]
+     false}))
