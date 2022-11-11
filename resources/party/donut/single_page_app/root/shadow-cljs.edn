@@ -11,7 +11,9 @@
            :compiler-options {:optimizations           :none
                               :source-map              true
                               :source-map-detail-level :all
-                              :closure-defines         {"re_frame.trace.trace_enabled_QMARK_" true}}
+                              :closure-defines         {"re_frame.trace.trace_enabled_QMARK_" true}
+                              ;; this is specifically for the warning in loom/alg_generic:494.
+                              :warnings                {:invalid-arithmetic false}}
            :build-hooks      [(donut.hooks/write-styles-hook)]
 
            :modules

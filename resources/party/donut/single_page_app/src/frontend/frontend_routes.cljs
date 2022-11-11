@@ -17,4 +17,4 @@
      :coercion   rm/coercion
      :lifecycle  {:enter [[::dff/clear {:donut.form/key [:post :example-entity]}]
                           [::dsf/get :example-entity {::dsf/rules #{::dsf/merge-route-params}}]]}
-     :parameters {:path [:map [:example-entity/id int?]]}}]])
+     :parameters {:path [:map [:example_entity/id int?]]}}]])
