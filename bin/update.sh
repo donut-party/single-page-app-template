@@ -26,4 +26,4 @@ cp -r  "${MINIMAL_ROOT}/src/donut/minimal" "${TEMPLATE_DIR}/src"
 cp -r  "${MINIMAL_ROOT}/test/donut/minimal" "${TEMPLATE_DIR}/test"
 
 cd $TEMPLATE_DIR
-find ./ ! -name '.DS_Store' -type f -exec sed -i "" 's/donut\.minimal/{{top\/ns}}/g' "{}" \;
+find ./ ! -name '.DS_Store' -type f -exec sed -i "" 's/donut\.minimal/{{top\/ns}}.{{main\/ns}}/g' "{}" \;

@@ -17,11 +17,11 @@
            :build-hooks      [(donut.hooks/write-styles-hook)]
 
            :modules
-           {:main {:entries [{{top/ns}}.frontend.core]
-                   :init-fn {{top/ns}}.frontend.core/init}}
+           {:main {:entries [{{top/ns}}.{{main/ns}}.frontend.core]
+                   :init-fn {{top/ns}}.{{main/ns}}.frontend.core/init}}
 
            ;; start a development http server on http://localhost:3000
            :devtools
            {:preloads    [day8.re-frame-10x.preload]
-            :before-load {{top/ns}}.frontend.core/stop
-            :after-load  {{top/ns}}.frontend.core/start}}}}
+            :before-load {{top/ns}}.{{main/ns}}.frontend.core/stop
+            :after-load  {{top/ns}}.{{main/ns}}.frontend.core/start}}}}

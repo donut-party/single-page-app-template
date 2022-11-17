@@ -1,10 +1,10 @@
-(ns {{top/ns}}.frontend.app
+(ns {{top/ns}}.{{main/ns}}.frontend.app
   (:require
    [re-frame.core :as rf]
    [donut.frontend.nav.components :as dnc]
    [donut.frontend.nav.flow :as dnf]
-   [{{top/ns}}.frontend.handlers] ;; load handlers
-   [{{top/ns}}.frontend.ui :as ui]))
+   [{{top/ns}}.{{main/ns}}.frontend.handlers] ;; load handlers
+   [{{top/ns}}.{{main/ns}}.frontend.ui :as ui]))
 
 (defn app
   []

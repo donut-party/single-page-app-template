@@ -1,4 +1,4 @@
-(ns {{top/ns}}.frontend.ui
+(ns {{top/ns}}.{{main/ns}}.frontend.ui
   (:require
    [lambdaisland.ornament :as o]))
 

@@ -1,4 +1,4 @@
-(ns {{top/ns}}.frontend.handlers
+(ns {{top/ns}}.{{main/ns}}.frontend.handlers
   (:require
    [donut.frontend.core.utils :as dcu]
    [donut.frontend.nav.flow :as dnf]

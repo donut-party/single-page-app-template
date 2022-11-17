@@ -1,10 +1,10 @@
-(ns {{top/ns}}.backend.system
+(ns {{top/ns}}.{{main/ns}}.backend.system
   (:require
    [aero.core :as aero]
    [clojure.java.io :as io]
    [donut.middleware :as dm]
-   [{{top/ns}}.backend.handler :as dh]
-   [{{top/ns}}.cross.endpoint-routes :as endpoint-routes]
+   [{{top/ns}}.{{main/ns}}.backend.handler :as dh]
+   [{{top/ns}}.{{main/ns}}.cross.endpoint-routes :as endpoint-routes]
    [donut.system :as ds]
    [migratus.core :as migratus]
    [next.jdbc :as jdbc]

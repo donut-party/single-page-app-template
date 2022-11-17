@@ -1,8 +1,8 @@
-(ns {{top/ns}}.cross.endpoint-routes
+(ns {{top/ns}}.{{main/ns}}.cross.endpoint-routes
   (:require [donut.routes :as dr]
             #?@(:clj
                 [;; endpoint namespaces go here
-                 [{{top/ns}}.backend.endpoint.example-entity-endpoint :as example-entity]])))
+                 [{{top/ns}}.{{main/ns}}.backend.endpoint.example-entity-endpoint :as example-entity]])))
 
 (def routes
   (dr/merge-route-opts

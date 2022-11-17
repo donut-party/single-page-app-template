@@ -1,6 +1,6 @@
-(ns {{top/ns}}.frontend.components.example-entity
+(ns {{top/ns}}.{{main/ns}}.frontend.components.example-entity
   (:require
-   [{{top/ns}}.frontend.ui :as ui]))
+   [{{top/ns}}.{{main/ns}}.frontend.ui :as ui]))
 
 (defn show
   []

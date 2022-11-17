@@ -1,4 +1,4 @@
-(ns {{top/ns}}.frontend.subs
+(ns {{top/ns}}.{{main/ns}}.frontend.subs
   (:require
    [donut.frontend.core.utils :as dcu]
    [donut.frontend.nav.utils :as dnu]
