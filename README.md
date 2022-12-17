@@ -1,6 +1,17 @@
 # party.donut/single-page-app
 
-FIXME: my new template.
+Template for a Donut single page app. Uses the minimal project as its base.
+
+## Development
+
+To update this template, we copy over files from `minimal` and perform some transformations to get the files template-ready.
+
+This is done in a shell script, as is the command to try the template:
+
+``` bash
+./bin/update.sh
+./bin/try.sh
+```
 
 ## Usage
 
