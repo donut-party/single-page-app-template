@@ -3,26 +3,25 @@
    [donut.datapotato.next-jdbc :as dfn]
    [donut.endpoint.test.harness :as deth]
    [{{top/ns}}.{{main/ns}}.backend.system] ;; for multimethod
+   [donut.system :as ds]
+   [malli.generator :as mg]
    [next.jdbc :as jdbc]))
 
 (defn db-connection
   []
-  (deth/instance [:db :connection]))
+  (jdbc/get-connection (get-in deth/*system* [::ds/instances :db :datasource])))
 
 (def potato-schema
+  ;; TODO donut-generated remove this
   {:example-entity {:prefix   :ee
-                    :generate {:schema :example-entity/record}
+                    :generate {:schema [:map]}
                     :fixtures {:table-name "example_entity"}}})
 
 (def datapotato-db
   {:schema   potato-schema
-   :generate {:generator nil
-              ;; example values for :generator include:
+   :generate {:generator mg/generate
               #_(comment
-                  ;; malli
-                  malli.generator/generate
-
-                  ;; clojure spec
+                  ;; use clojure spec generator
                   (comp clojure.spec.gen.alpha/generate clojure.spec.alpha/gen))}
    :fixtures (merge dfn/config
                     {:get-connection (fn [_] (db-connection))

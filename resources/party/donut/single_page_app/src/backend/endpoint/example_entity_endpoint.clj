@@ -6,15 +6,15 @@
 (def collection-handlers
   {:get
    {:handler
-    (fn [{:keys [db]}]
+    (fn [{:keys [dependencies]}]
       {:status 200
-       :body   (qe/entities db)})}
+       :body   (qe/entities (:db dependencies))})}
 
    :post
    {:handler
-    (fn [{:keys [all-params db]}]
+    (fn [{:keys [all-params dependencies]}]
       {:status 200
-       :body   (jsql/insert! db :entity all-params)})}})
+       :body   (jsql/insert! (:db dependencies) :entity all-params)})}})
 
 (def member-parameters
   {:path [:map
@@ -23,21 +23,21 @@
 (def member-handlers
   {:get
    {:parameters member-parameters
-    :handler    (fn [{:keys [all-params db]}]
+    :handler    (fn [{:keys [all-params dependencies]}]
                   {:status 200
-                   :body   (qe/entity-by-id db all-params)})}
+                   :body   (qe/entity-by-id (:db dependencies) all-params)})}
 
    :put
    {:parameters member-parameters
-    :handler    (fn [{:keys [all-params db]}]
-                  (jsql/update! db
+    :handler    (fn [{:keys [all-params dependencies]}]
+                  (jsql/update! (:db dependencies)
                                 :entity
                                 (dissoc all-params :entity/id)
                                 (select-keys all-params [:entity/id]))
                   {:status 200
-                   :body   (qe/entity-by-id db all-params)})}
+                   :body   (qe/entity-by-id (:db dependencies) all-params)})}
 
    :delete
    {:parameters member-parameters
-    :handler    (fn [{:keys [all-params db]}]
-                  (jsql/delete! db :entity (select-keys all-params [:entity/id])))}})
+    :handler    (fn [{:keys [all-params dependencies]}]
+                  (jsql/delete! (:db dependencies) :entity (select-keys all-params [:entity/id])))}})

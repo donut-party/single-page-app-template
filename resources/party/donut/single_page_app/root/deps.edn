@@ -14,13 +14,14 @@
 
          party.donut/datapotato           {:mvn/version "1.0.448"}
          party.donut/datapotato-next-jdbc {:mvn/version "1.0.448"}
-         party.donut/endpoint-test        {:mvn/version "0.0.18"}
+         party.donut/endpoint             {:mvn/version "0.0.23"}
+         party.donut/endpoint-test        {:mvn/version "0.0.20"}
          party.donut/generate             {:mvn/version "1.0.9"}
          party.donut/generators           {:mvn/version "0.0.5"}
-         party.donut/routes               {:mvn/version "0.0.5"}
+         party.donut/routes               {:mvn/version "0.0.6"}
          party.donut/middleware           {:mvn/version "0.0.6"}
          party.donut/sugar                {:mvn/version "0.0.16"}
-         party.donut/system               {:mvn/version "0.0.167"}
+         party.donut/system               {:mvn/version "0.0.171"}
 
          ring/ring          {:mvn/version "1.9.4"}
          ring/ring-defaults {:mvn/version "0.3.3"}}
@@ -34,10 +35,11 @@
 
   :framework-dev {:override-deps {party.donut/datapotato                    {:local/root "../datapotato/datapotato"}
                                   party.donut/datapotato-fixtures-next-jdbc {:local/root "../datapotato/datapotato-fixtures-next-jdbc"}
+                                  party.donut/endpoint                      {:local/root "../endpoint"}
                                   party.donut/endpoint-test                 {:local/root "../endpoint-test"}
                                   party.donut/frontend                      {:local/root "../frontend"}
                                   party.donut/generate                      {:local/root "../generate"}
-                                  party.donut/generators                    {:local/root "../generator"}
+                                  party.donut/generators                    {:local/root "../generators"}
                                   party.donut/middleware                    {:local/root "../middleware"}
                                   party.donut/routes                        {:local/root "../routes"}
                                   party.donut/sugar                         {:local/root "../sugar"}
