@@ -1,7 +1,6 @@
 (ns {{top/ns}}.{{main/ns}}.fixtures
   (:require
-   [donut.datapotato.next-jdbc :as dfn]
-   [donut.endpoint.test.harness :as deth]
+   [donut.datapotato.next-jdbc :as dnj]
    [{{top/ns}}.{{main/ns}}.backend.system] ;; for multimethod
    [donut.system :as ds]
    [malli.generator :as mg]
@@ -9,12 +8,14 @@
 
 (defn db-connection
   []
-  (jdbc/get-connection (get-in deth/*system* [::ds/instances :db :datasource])))
+  (jdbc/get-connection (get-in ds/*system* [::ds/instances :db :datasource])))
 
 (def potato-schema
   ;; TODO donut-generated remove this
   {:example-entity {:prefix   :ee
-                    :generate {:schema [:map]}
+                    :generate {:schema [:map
+                                        [:id pos-int?]
+                                        [:description string?]]}
                     :fixtures {:table-name "example_entity"}}})
 
 (def datapotato-db
@@ -23,10 +24,9 @@
               #_(comment
                   ;; use clojure spec generator
                   (comp clojure.spec.gen.alpha/generate clojure.spec.alpha/gen))}
-   :fixtures (merge dfn/config
+   :fixtures (merge dnj/config
                     {:get-connection (fn [_] (db-connection))
                      :setup          (fn [{{:keys [connection]} :fixtures}]
                                        ;; clear tables
-                                       (comment
-                                         (jdbc/execute! connection ["TRUNCATE TABLE example_entity CASCADE"]))
+                                       (jdbc/execute! connection ["DELETE FROM example_entity"])
                                        )})})

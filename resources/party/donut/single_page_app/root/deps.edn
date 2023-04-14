@@ -4,7 +4,6 @@
          com.github.seancorfield/honeysql  {:mvn/version "2.1.818"}
          com.github.seancorfield/next.jdbc {:mvn/version "1.2.737"}
          com.lambdaisland/ornament         {:mvn/version "0.4.34"}
-         environ/environ                   {:mvn/version "1.2.0"}
          metosin/muuntaja                  {:mvn/version "0.6.8"}
          metosin/reitit-malli              {:mvn/version "0.5.15"}
          metosin/reitit-middleware         {:mvn/version "0.5.15"}
@@ -12,19 +11,17 @@
          org.clojure/clojure               {:mvn/version "1.10.3"}
          org.xerial/sqlite-jdbc            {:mvn/version "3.36.0.3"}
 
-         party.donut/datapotato           {:mvn/version "1.0.448"}
-         party.donut/datapotato-next-jdbc {:mvn/version "1.0.448"}
-         party.donut/endpoint             {:mvn/version "0.0.23"}
-         party.donut/endpoint-test        {:mvn/version "0.0.20"}
+         party.donut/datapotato           {:mvn/version "1.0.450"}
+         party.donut/datapotato-next-jdbc {:mvn/version "1.0.450"}
+         party.donut/endpoint             {:mvn/version "0.0.25"}
+         party.donut/endpoint-test        {:mvn/version "0.0.28"}
          party.donut/generate             {:mvn/version "1.0.9"}
          party.donut/generators           {:mvn/version "0.0.5"}
          party.donut/routes               {:mvn/version "0.0.6"}
-         party.donut/middleware           {:mvn/version "0.0.6"}
          party.donut/sugar                {:mvn/version "0.0.16"}
-         party.donut/system               {:mvn/version "0.0.171"}
+         party.donut/system               {:mvn/version "0.0.201"}
 
-         ring/ring          {:mvn/version "1.9.4"}
-         ring/ring-defaults {:mvn/version "0.3.3"}}
+         ring/ring {:mvn/version "1.9.4"}}
 
  :aliases
  {:dev
@@ -33,17 +30,16 @@
                  ring/ring-mock              {:mvn/version "0.4.0"}}
    :extra-paths ["dev/src" "test"]}
 
-  :framework-dev {:override-deps {party.donut/datapotato                    {:local/root "../datapotato/datapotato"}
-                                  party.donut/datapotato-fixtures-next-jdbc {:local/root "../datapotato/datapotato-fixtures-next-jdbc"}
-                                  party.donut/endpoint                      {:local/root "../endpoint"}
-                                  party.donut/endpoint-test                 {:local/root "../endpoint-test"}
-                                  party.donut/frontend                      {:local/root "../frontend"}
-                                  party.donut/generate                      {:local/root "../generate"}
-                                  party.donut/generators                    {:local/root "../generators"}
-                                  party.donut/middleware                    {:local/root "../middleware"}
-                                  party.donut/routes                        {:local/root "../routes"}
-                                  party.donut/sugar                         {:local/root "../sugar"}
-                                  party.donut/system                        {:local/root "../system"}}}
+  :framework-dev {:override-deps {party.donut/datapotato           {:local/root "../datapotato/datapotato"}
+                                  party.donut/datapotato-next-jdbc {:local/root "../datapotato/datapotato-next-jdbc"}
+                                  party.donut/endpoint             {:local/root "../endpoint"}
+                                  party.donut/endpoint-test        {:local/root "../endpoint-test"}
+                                  party.donut/frontend             {:local/root "../frontend"}
+                                  party.donut/generate             {:local/root "../generate"}
+                                  party.donut/generators           {:local/root "../generators"}
+                                  party.donut/routes               {:local/root "../routes"}
+                                  party.donut/sugar                {:local/root "../sugar"}
+                                  party.donut/system               {:local/root "../system"}}}
 
 
   :cljs

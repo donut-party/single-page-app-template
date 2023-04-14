@@ -1,3 +1,10 @@
+# A Minimal Donut App
+
+This repo is used as the base for the [single-page-app
+template](https://github.com/donut-party/single-page-app-template). It makes
+template development easier by providing an actual environment for running an
+app and experimenting with donut changes.
+
 # dev
 
 Create postgres dbs:

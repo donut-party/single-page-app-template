@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+
+# Create a new clojure project using the single-page-app template
+
 PROJECT_ROOT=`git rev-parse --show-toplevel`
 cd $PROJECT_ROOT
 
