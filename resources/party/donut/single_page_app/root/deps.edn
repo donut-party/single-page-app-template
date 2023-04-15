@@ -19,7 +19,7 @@
          party.donut/generators           {:mvn/version "0.0.5"}
          party.donut/routes               {:mvn/version "0.0.6"}
          party.donut/sugar                {:mvn/version "0.0.16"}
-         party.donut/system               {:mvn/version "0.0.201"}
+         party.donut/system               {:mvn/version "0.0.202"}
 
          ring/ring {:mvn/version "1.9.4"}}
 
