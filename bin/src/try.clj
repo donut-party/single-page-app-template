@@ -8,7 +8,6 @@
 (def project-root (util/project-root))
 (def template-test-dir (fs/path (fs/parent project-root) "template-test"))
 
-
 (defn -main
   []
   (fs/delete-tree template-test-dir)
