@@ -32,7 +32,7 @@ clojure \
 Assuming you have installed `deps-new` as your `new` "tool" via:
 
 ```bash
-clojure -Ttools install io.github.seancorfield/deps-new '{:git/tag "v0.4.13"}' :as new
+clojure -Ttools install-latest :lib io.github.seancorfield/deps-new :as new
 ```
 
 > Note: once the template has been published (to a public git repo), the invocation will be the same, except the `:local/root` dependency will be replaced by a git or Maven-like coordinate.
