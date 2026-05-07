@@ -22,10 +22,17 @@
 
 (fs/delete-tree template-dir)
 
-(doseq [minimal-file (remove #(re-find #"(src|test)/donut/minimal" %) source-files)]
-  (when-let [parent (fs/parent minimal-file)]
-    (fs/create-dirs (fs/path template-dir parent)))
-  (fs/copy (fs/path source-root minimal-file) (fs/path template-dir minimal-file)))
+;; necessary for how clj-new works; makes it easier to copy all files from the
+;; project root
+(fs/create-dirs (fs/path template-dir "project-root"))
+
+;; copies source files in git
+(doseq [source-file (remove #(re-find #"(src|test)/donut/minimal" %) source-files)]
+  (if-let [parent (fs/parent source-file)]
+    (do
+      (fs/create-dirs (fs/path template-dir parent))
+      (fs/copy (fs/path source-root source-file) (fs/path template-dir source-file)))
+    (fs/copy (fs/path source-root source-file) (fs/path template-dir "project-root" source-file))))
 
 (fs/copy-tree (fs/path source-root "src/donut/minimal") (fs/path template-dir "src"))
 (fs/copy-tree (fs/path source-root "test/donut/minimal") (fs/path template-dir "test"))

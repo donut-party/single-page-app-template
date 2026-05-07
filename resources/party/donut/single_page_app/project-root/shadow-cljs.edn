@@ -15,11 +15,11 @@
                                                         day8.re-frame.tracing.trace-enabled? true}
                               ;; this is specifically for the warning in loom/alg_generic:494.
                               :warnings                {:invalid-arithmetic false}}
-           :build-hooks      [(donut.frontend.routes/write-frontend-routes-hook donut.minimal.frontend.frontend-routes/routes)]
+           :build-hooks      [(donut.frontend.routes/write-frontend-routes-hook {{top/ns}}.{{main/ns}}.frontend.frontend-routes/routes)]
 
            :modules
-           {:main {:entries [donut.minimal.frontend.core]
-                   :init-fn donut.minimal.frontend.core/init}}
+           {:main {:entries [{{top/ns}}.{{main/ns}}.frontend.core]
+                   :init-fn {{top/ns}}.{{main/ns}}.frontend.core/init}}
 
            ;; start a development http server on http://localhost:3000
            :devtools
