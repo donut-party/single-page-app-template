@@ -14,9 +14,15 @@
   "where files for the clj-new template go"
   (fs/path project-root "resources/party/donut/single_page_app"))
 
+(def template-project-root-dir
+  "this directory holds files that are meant to end up in the project root after a
+  project is created with clj-new. They need to be placed in a sub-directory
+  like this because of how clj-new's templating/file copying works"
+  (fs/path template-dir "project-root"))
+
 (def ingredients-dir
-  "files to copy into the clj-new template. these aren't derived from the minimal
-  app"
+  "files to copy into the clj-new template under project-root. these aren't
+  derived from the minimal app"
   (fs/path project-root "resources/party/donut/ingredients"))
 
 (def source-root
@@ -44,9 +50,7 @@
   ;; over we'd retain files we don't want
   (fs/delete-tree template-dir)
 
-  ;; necessary for how clj-new works; makes it easier to copy all files from the
-  ;; project root
-  (fs/create-dirs (fs/path template-dir "project-root"))
+  (fs/create-dirs template-project-root-dir)
 
   ;; copies non-app source files in git
   (doseq [source-file-path (non-app-source-file-paths)]
@@ -54,13 +58,17 @@
       (do
         (fs/create-dirs (fs/path template-dir parent))
         (fs/copy (fs/path source-root source-file-path) (fs/path template-dir source-file-path)))
-      (fs/copy (fs/path source-root source-file-path) (fs/path template-dir "project-root" source-file-path))))
+      (fs/copy (fs/path source-root source-file-path) (fs/path template-project-root-dir source-file-path))))
 
+  (fs/copy-tree ingredients-dir template-project-root-dir {:replace-existing true})
+  
   ;; these go in their own directory to make it easier for clj-new to put them
   ;; in "top/file / main/file"
   (fs/copy-tree (fs/path source-root "src/donut/minimal") (fs/path template-dir "src-app"))
   (fs/copy-tree (fs/path source-root "test/donut/minimal") (fs/path template-dir "test-app"))
 
+  (fs/copy (fs/path project-root "resources/template.edn") (fs/path template-dir "template.edn"))
+  
   ;; put template interpolation in place
   (doseq [path (fs/glob template-dir "**/**")]
     (when (fs/regular-file? path)
@@ -68,7 +76,4 @@
         (spit path-str
               (-> path-str
                   slurp
-                  (str/replace #"donut\.minimal" "{{top/ns}}.{{main/ns}}"))))))
-
-  (fs/copy (fs/path ingredients-dir "template.edn")
-           (fs/path template-dir "template.edn")))
+                  (str/replace #"donut\.minimal" "{{top/ns}}.{{main/ns}}")))))))
