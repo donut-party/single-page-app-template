@@ -34,8 +34,8 @@
       (fs/copy (fs/path source-root source-file) (fs/path template-dir source-file)))
     (fs/copy (fs/path source-root source-file) (fs/path template-dir "project-root" source-file))))
 
-(fs/copy-tree (fs/path source-root "src/donut/minimal") (fs/path template-dir "src"))
-(fs/copy-tree (fs/path source-root "test/donut/minimal") (fs/path template-dir "test"))
+(fs/copy-tree (fs/path source-root "src/donut/minimal") (fs/path template-dir "src-app"))
+(fs/copy-tree (fs/path source-root "test/donut/minimal") (fs/path template-dir "test-app"))
 
 (doseq [path (fs/glob template-dir "**/**")]
   (when (fs/regular-file? path)

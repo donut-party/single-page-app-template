@@ -8,5 +8,7 @@
   ["dev" "dev"]
   ["doc" "doc"]
   ["resources" "resources"]
-  ["src" "src/{{top/file}}/{{main/file}}" {}]
-  ["test" "test/{{top/file}}/{{main/file}}" {}]]}
+  ["src" "src"]
+  ["test" "test"]
+  ["src-app" "src/{{top/file}}/{{main/file}}" {}]
+  ["test-app" "test/{{top/file}}/{{main/file}}" {}]]}
