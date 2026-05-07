@@ -1,7 +1,7 @@
-(ns donut.minimal.fixtures
+(ns {{top/ns}}.{{main/ns}}.fixtures
   (:require
    [donut.datapotato.next-jdbc :as dnj]
-   [donut.minimal.backend.system] ;; for multimethod
+   [{{top/ns}}.{{main/ns}}.backend.system] ;; for multimethod
    [donut.system :as ds]
    [malli.generator :as mg]
    [next.jdbc :as jdbc]))

@@ -1,4 +1,4 @@
-(ns donut.minimal.backend.system
+(ns {{top/ns}}.{{main/ns}}.backend.system
   (:require
    [aero.core :as aero]
    [clojure.java.io :as io]
@@ -7,7 +7,7 @@
    [donut.endpoint.route-writer :as derw]
    [donut.endpoint.router :as der]
    [donut.endpoint.test.harness :as deth]
-   [donut.minimal.cross.endpoint-routes :as endpoint-routes]
+   [{{top/ns}}.{{main/ns}}.cross.endpoint-routes :as endpoint-routes]
    [donut.system :as ds]
    [migratus.core :as migratus]
    [next.jdbc :as jdbc]

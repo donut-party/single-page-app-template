@@ -1,13 +1,13 @@
-(ns donut.minimal.frontend.core
+(ns {{top/ns}}.{{main/ns}}.frontend.core
   (:require
    [donut.frontend.config :as dconf]
    [donut.frontend.core.flow :as dcf]
    [donut.frontend.core.utils :as dcu]
    [donut.frontend.nav.flow :as dnf]
    [donut.generated.endpoint-routes :as endpoint-routes]
-   [donut.minimal.frontend.app :as app]
-   [donut.minimal.frontend.frontend-routes :as frontend-routes]
-   [donut.minimal.frontend.subs] ;; load subs
+   [{{top/ns}}.{{main/ns}}.frontend.app :as app]
+   [{{top/ns}}.{{main/ns}}.frontend.frontend-routes :as frontend-routes]
+   [{{top/ns}}.{{main/ns}}.frontend.subs] ;; load subs
    [donut.system :as ds]
    [meta-merge.core :as meta-merge]
    [re-frame.core :as rf]

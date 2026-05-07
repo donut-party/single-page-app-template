@@ -1,6 +1,6 @@
-(ns donut.minimal.frontend.components.home
+(ns {{top/ns}}.{{main/ns}}.frontend.components.home
   (:require
-   [donut.minimal.frontend.ui :as ui]))
+   [{{top/ns}}.{{main/ns}}.frontend.ui :as ui]))
 
 (defn component
   []

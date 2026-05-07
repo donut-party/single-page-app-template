@@ -1,9 +1,9 @@
-(ns donut.minimal.backend.endpoint.example-entity-endpoint-test
+(ns {{top/ns}}.{{main/ns}}.backend.endpoint.example-entity-endpoint-test
   (:require
    [clojure.test :refer [deftest is use-fixtures]]
    [donut.datapotato.core :as dc]
    [donut.endpoint.test.harness :as deth]
-   [donut.minimal.fixtures :as fixtures]
+   [{{top/ns}}.{{main/ns}}.fixtures :as fixtures]
    [donut.system :as ds]))
 
 (use-fixtures :each (ds/system-fixture :test))

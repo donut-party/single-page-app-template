@@ -1,0 +1,10 @@
+{:description "A single-page app built with donut"
+ ;; this does not transform the data but does print a message:
+ :data-fn party.donut.single-page-app/data-fn
+ ;; this does not transform the EDN but does print a message:
+ :template-fn party.donut.single-page-app/template-fn
+ :transform
+ [["src" "src/{{top/file}}/{{main/file}}"
+   {}]
+  ["test" "test/{{top/file}}/{{main/file}}"
+   {}]]}

@@ -1,7 +1,7 @@
-(ns donut.minimal.cross.endpoint-routes
+(ns {{top/ns}}.{{main/ns}}.cross.endpoint-routes
   (:require
    ;; endpoint namespaces go here
-   [donut.minimal.backend.endpoint.example-entity-endpoint :as example-entity]))
+   [{{top/ns}}.{{main/ns}}.backend.endpoint.example-entity-endpoint :as example-entity]))
 
 (def routes
   [;; example

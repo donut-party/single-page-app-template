@@ -1,2 +1,2 @@
-(ns donut.minimal.cross.endpoint-routes)
+(ns {{top/ns}}.{{main/ns}}.cross.endpoint-routes)
 

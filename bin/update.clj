@@ -36,4 +36,12 @@
 (fs/delete-tree (fs/path template-dir "test/donut"))
 
 (doseq [path (fs/glob template-dir "**/**")]
-  (println "path" path))
+  (when (fs/regular-file? path)
+    (let [path-str (str path)]
+      (spit path-str
+            (-> path-str
+                slurp
+                (str/replace #"donut\.minimal" "{{top/ns}}.{{main/ns}}"))))))
+
+(fs/copy (fs/path project-root "template.edn")
+         (fs/path template-dir "template.edn"))

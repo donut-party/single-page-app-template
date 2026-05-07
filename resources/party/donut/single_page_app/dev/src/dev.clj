@@ -6,7 +6,7 @@
    [donut.endpoint.test.harness :as deth]
    [donut.generate :as dg]
    [donut.generators :as dgs] ;; registor generators
-   [donut.minimal.backend.system :as sys]
+   [{{top/ns}}.{{main/ns}}.backend.system :as sys]
    [donut.system :as ds]
    [donut.system.repl :as dsr]
    [donut.system.repl.state :as dsrs]
