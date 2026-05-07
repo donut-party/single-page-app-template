@@ -5,6 +5,8 @@
  :template-fn party.donut.single-page-app/template-fn
  :transform
  [["project-root" "."]
+  ["dev" "dev"]
   ["doc" "doc"]
+  ["resources" "resources"]
   ["src" "src/{{top/file}}/{{main/file}}" {}]
   ["test" "test/{{top/file}}/{{main/file}}" {}]]}
