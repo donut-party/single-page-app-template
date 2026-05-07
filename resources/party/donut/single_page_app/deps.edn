@@ -1,0 +1,76 @@
+{:paths ["src" "resources"]
+ :deps  {aero/aero                         {:mvn/version "1.1.6"}
+         com.github.seancorfield/honeysql  {:mvn/version "2.1.818"}
+         com.github.seancorfield/next.jdbc {:mvn/version "1.2.737"}
+         metosin/malli                     {:mvn/version "0.19.1"}
+         metosin/muuntaja                  {:mvn/version "0.6.8"}
+         metosin/reitit-malli              {:mvn/version "0.8.0"}
+         metosin/reitit-middleware         {:mvn/version "0.8.0"}
+         metosin/reitit-ring               {:mvn/version "0.8.0"}
+         migratus/migratus                 {:mvn/version "1.3.5"}
+         org.clojure/clojure               {:mvn/version "1.12.4"}
+         org.xerial/sqlite-jdbc            {:mvn/version "3.36.0.3"}
+
+         party.donut/compose              {:mvn/version "0.0.30"}
+         party.donut/datapotato           {:mvn/version "1.0.457"}
+         party.donut/datapotato-next-jdbc {:mvn/version "1.0.457"}
+         party.donut/endpoint             {:mvn/version "0.0.39"}
+         party.donut/endpoint-test        {:mvn/version "0.0.28"}
+         party.donut/generate             {:mvn/version "1.0.9"}
+         party.donut/generators           {:mvn/version "0.0.5"}
+         party.donut/sugar                {:mvn/version "0.0.19"}
+         party.donut/system               {:mvn/version "1.0.258"}
+
+         ring/ring {:mvn/version "1.12.2"}
+
+         com.taoensso/telemere       {:mvn/version "1.2.1"}
+         com.taoensso/telemere-slf4j {:mvn/version "1.2.1"}
+         }
+
+ :aliases
+ {:dev
+  {:extra-deps  {com.nextjournal/beholder    {:mvn/version "1.0.0"}
+                 djblue/portal               {:mvn/version "0.58.2"}
+                 org.clojure/tools.namespace {:mvn/version "1.1.0"}
+                 ring/ring-mock              {:mvn/version "0.4.0"}}
+   :extra-paths ["dev/src" "test"]}
+
+  :framework-dev {:override-deps {party.donut/datapotato           {:local/root "../datapotato/datapotato"}
+                                  party.donut/datapotato-next-jdbc {:local/root "../datapotato/datapotato-next-jdbc"}
+                                  party.donut/endpoint             {:local/root "../endpoint"}
+                                  party.donut/endpoint-test        {:local/root "../endpoint-test"}
+                                  party.donut/frontend             {:local/root "../frontend"}
+                                  party.donut/generate             {:local/root "../generate"}
+                                  party.donut/generators           {:local/root "../generators"}
+                                  party.donut/routes               {:local/root "../routes"}
+                                  party.donut/sugar                {:local/root "../sugar"}
+                                  party.donut/system               {:local/root "../system"}}}
+
+
+  :cljs
+  {:extra-deps {binaryage/devtools                              {:mvn/version "1.0.7"}
+                party.donut/frontend                            {:mvn/version "0.0.177"}
+                org.clojure/clojurescript                       {:mvn/version "1.11.132"}
+                com.google.javascript/closure-compiler-unshaded {:mvn/version "v20240317"}
+                day8.re-frame/tracing                           {:mvn/version "0.6.2"}
+                day8.re-frame/re-frame-10x                      {:mvn/version "1.9.9"}
+                re-frame/re-frame                               {:mvn/version "1.4.3"}
+                thheller/shadow-cljs                            {:mvn/version "2.28.12"}}}
+
+  :test
+  {:extra-paths ["test"]
+   :extra-deps  {io.github.cognitect-labs/test-runner
+                 {:git/tag "v0.5.0" :git/sha "48c3c67"}}
+   :exec-fn     cognitect.test-runner.api/test}
+
+  :test-cljs
+  {:extra-paths ["test"]
+   :extra-deps  {org.clojure/test.check  {:mvn/version "0.9.0"}
+                 olical/cljs-test-runner {:mvn/version "3.8.0"}}
+   :exec-fn     cljs-test-runner.main/-main}
+
+
+  :build
+  {:deps       {io.github.seancorfield/build-clj
+                {:git/tag "v0.6.6" :git/sha "171d5f1"}}
+   :ns-default build}}}

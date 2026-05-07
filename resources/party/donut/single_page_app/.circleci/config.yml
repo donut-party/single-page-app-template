@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  test:
+    environment:
+      - _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
+    docker:
+      - image: cimg/clojure:1.10
+    steps:
+      - checkout
+      - run:
+          name: test clj
+          command: clojure -X:test
+      # - run:
+          # name: Build
+          # command: clojure -T:build jar
+      - save-cache:
+          paths:
+            - ~/bin
+            - ~/.m2
+          key: system-{{ checksum "build.clj" }}
+      - persist_to_workspace:
+          root: ./
+          paths:
+            - ./
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
