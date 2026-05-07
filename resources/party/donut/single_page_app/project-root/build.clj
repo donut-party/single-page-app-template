@@ -1,35 +1,55 @@
 (ns build
-  (:refer-clojure :exclude [test])
+  "donut/minimal's build script. Builds on https://github.com/seancorfield/honeysql/blob/develop/build.clj
+
+  Run tests:
+  clojure -X:test
+  clojure -X:test:master
+  For more information, run:
+  clojure -A:deps -T:build help/doc"
+
   (:require
-   [clojure.tools.build.api :as b] ; for b/git-count-revs
-   [org.corfield.build :as bb]))
+   [clojure.tools.build.api :as b])
+  (:refer-clojure :exclude [test]))
 
-(def lib '{{group/id}}/{{artifact/id}})
+(def lib 'party.donut/minimal)
 (def version (format "0.0.%s" (b/git-count-revs nil)))
+(def class-dir "target/classes")
+(def basis (b/create-basis {:project "deps.edn"}))
 
-(defn test "Run the tests." [opts]
-  (bb/run-tests opts))
+(defn- pom-template [version]
+  [[:description "minimal SPA with donut"]
+   [:url "https://github.com/donut-power/minimal"]
+   [:licenses
+    [:license
+     [:name "MIT"]
+     [:url "https://opensource.org/license/mit/"]]]
+   [:developers
+    [:developer
+     [:name "Daniel Higginbotham"]]]
+   [:scm
+    [:url "https://github.com/donut-power/minimal"]
+    [:connection "scm:git:https://github.com/donut-power/minimal.git"]
+    [:developerConnection "scm:git:ssh:git@github.com:donut-power/minimal.git"]
+    [:tag (str "v" version)]]])
 
-(defn ci "Run the CI pipeline of tests (and build the JAR)." [opts]
-  (-> opts
-      (assoc :lib lib :version version)
-      (bb/run-tests)
-      (bb/clean)
-      (bb/jar)))
+(defn- jar-opts [opts]
+  (assoc opts
+         :lib lib
+         :version version
+         :jar-file (format "target/%s-%s.jar" lib version)
+         :basis basis
+         :class-dir class-dir
+         :target "target"
+         :src-dirs ["src" "resources"]
+         :pom-data (pom-template version)))
 
 (defn jar "build a jar"
   [opts]
-  (-> opts
-      (assoc :lib lib :version version)
-      (bb/clean)
-      (bb/jar)))
+  (let [opts (jar-opts opts)]
+    (b/delete {:path "target"})
+    (b/write-pom opts)
+    (b/copy-dir {:src-dirs ["src" "resources"]
+                 :target-dir class-dir})
+    (b/jar opts)))
 
-(defn install "Install the JAR locally." [opts]
-  (-> opts
-      (assoc :lib lib :version version)
-      (bb/install)))
-
-(defn deploy "Deploy the JAR to Clojars." [opts]
-  (-> opts
-      (assoc :lib lib :version version)
-      (bb/deploy)))
+;; TODO uberjar

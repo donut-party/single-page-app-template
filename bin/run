@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# sets bb --config so that you can run tasks from any directory
+
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+
+if [ $# -eq 0 ]; then
+  echo "Call \"run task-name\" to see additional help for that task\n"
+  bb --config "$DIR/bb.edn" tasks
+else
+  bb --config "$DIR/bb.edn" "$@"
+fi
