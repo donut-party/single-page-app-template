@@ -48,5 +48,7 @@
                 slurp
                 (str/replace #"donut\.minimal" "{{top/ns}}.{{main/ns}}"))))))
 
+;; template.edn is stored in this project's root so it doesn't get blown away
+;; when this script is run
 (fs/copy (fs/path project-root "template.edn")
          (fs/path template-dir "template.edn"))
