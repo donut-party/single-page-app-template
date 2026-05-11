@@ -16,8 +16,8 @@
          party.donut/datapotato-next-jdbc {:mvn/version "1.0.457"}
          party.donut/endpoint             {:mvn/version "0.0.39"}
          party.donut/endpoint-test        {:mvn/version "0.0.28"}
-         party.donut/generate             {:mvn/version "1.0.9"}
-         party.donut/generators           {:mvn/version "0.0.5"}
+         party.donut/generate             {:mvn/version "1.0.43"}
+         party.donut/generators           {:mvn/version "0.0.18"}
          party.donut/sugar                {:mvn/version "0.0.19"}
          party.donut/system               {:mvn/version "1.0.258"}
 
