@@ -4,5 +4,8 @@
 
 (defn component
   []
-  [:div
-   [ui/h1 "Home Page"]])
+  [:div {:class "prose"}
+   [ui/h1 "A fresh new 🍩 app!"]
+   [:p "Try this to get started:"]
+   [:pre
+    [:code "donut g endpoint entity"]]])

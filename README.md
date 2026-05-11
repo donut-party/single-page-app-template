@@ -10,8 +10,8 @@ transformations to get the files template-ready.
 This is done in a shell script, as is the command to try the template:
 
 ``` bash
-./bin/update.sh
-./bin/try.sh # ensure the template works
+./bin/run update
+./bin/run try # ensure the template works
 ```
 
 ## Usage

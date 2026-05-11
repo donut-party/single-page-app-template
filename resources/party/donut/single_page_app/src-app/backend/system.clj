@@ -7,7 +7,7 @@
    [donut.endpoint.route-writer :as derw]
    [donut.endpoint.router :as der]
    [donut.endpoint.test.harness :as deth]
-   [{{top/ns}}.{{main/ns}}.cross.endpoint-routes :as endpoint-routes]
+   [{{top/ns}}.{{main/ns}}.backend.endpoint-routes :as endpoint-routes]
    [donut.system :as ds]
    [migratus.core :as migratus]
    [next.jdbc :as jdbc]

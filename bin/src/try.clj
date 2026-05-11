@@ -19,5 +19,5 @@
      "-Sdeps '{:deps {party.donut/single-page-app {:local/root \"./\"}}}'"
      "-Tnew create"
      ":template party.donut/single-page-app"
-     ":name donute-template-test/test-app"
+     ":name donut-template-test/test-app"
      ":target-dir ../template-test"])))
