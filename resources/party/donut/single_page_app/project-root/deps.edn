@@ -17,7 +17,7 @@
          party.donut/endpoint             {:mvn/version "0.0.39"}
          party.donut/endpoint-test        {:mvn/version "0.0.31"}
          party.donut/generate             {:mvn/version "1.0.57"}
-         party.donut/generators           {:mvn/version "0.0.29"}
+         party.donut/generators           {:mvn/version "0.0.32"}
          party.donut/sugar                {:mvn/version "0.0.19"}
          party.donut/system               {:mvn/version "1.0.258"}
 
