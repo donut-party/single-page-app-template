@@ -76,4 +76,5 @@
         (spit path-str
               (-> path-str
                   slurp
-                  (str/replace #"donut\.minimal" "{{top/ns}}.{{main/ns}}")))))))
+                  (str/replace #"donut\.minimal" "{{top/ns}}.{{main/ns}}")
+                  (str/replace #"donut/minimal" "{{top/ns}}/{{main/ns}}")))))))

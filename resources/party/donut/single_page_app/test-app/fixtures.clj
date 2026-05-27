@@ -20,10 +20,7 @@
 
 (def datapotato-db
   {:schema   potato-schema
-   :generate {:generator mg/generate
-              #_(comment
-                  ;; use clojure spec generator
-                  (comp clojure.spec.gen.alpha/generate clojure.spec.alpha/gen))}
+   :generate {:generator mg/generate}
    :fixtures (merge dnj/config
                     {:get-connection (fn [_] (db-connection))
                      :setup          (fn [{{:keys [connection]} :fixtures}]

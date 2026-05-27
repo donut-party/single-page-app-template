@@ -67,7 +67,7 @@
       #::ds{:start  (fn [{:keys [::ds/config]}]
                       (migratus/migrate config))
             :config {:run?          true
-                     :db            (ds/local-ref [:datasource])
+                     :db            (ds/ref [:env :dbspec])
                      :store         :database
                      :migration-dir "migrations"}}
       (ds/ref [:env :profile-name]))}

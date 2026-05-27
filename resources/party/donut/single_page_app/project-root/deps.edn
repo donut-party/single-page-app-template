@@ -15,9 +15,9 @@
          party.donut/datapotato           {:mvn/version "1.0.457"}
          party.donut/datapotato-next-jdbc {:mvn/version "1.0.457"}
          party.donut/endpoint             {:mvn/version "0.0.39"}
-         party.donut/endpoint-test        {:mvn/version "0.0.28"}
-         party.donut/generate             {:mvn/version "1.0.43"}
-         party.donut/generators           {:mvn/version "0.0.18"}
+         party.donut/endpoint-test        {:mvn/version "0.0.31"}
+         party.donut/generate             {:mvn/version "1.0.57"}
+         party.donut/generators           {:mvn/version "0.0.29"}
          party.donut/sugar                {:mvn/version "0.0.19"}
          party.donut/system               {:mvn/version "1.0.258"}
 
@@ -46,7 +46,6 @@
                                   party.donut/sugar                {:local/root "../sugar"}
                                   party.donut/system               {:local/root "../system"}}}
 
-
   :cljs
   {:extra-deps {binaryage/devtools                              {:mvn/version "1.0.7"}
                 party.donut/frontend                            {:mvn/version "0.0.177"}
@@ -71,4 +70,10 @@
 
   :build
   {:deps       {io.github.clojure/tools.build {:mvn/version "0.9.6"}}
-   :ns-default build}}}
+   :ns-default build}
+
+  :migrate
+  {:extra-deps {com.github.paulbutcher/clj-migratus {:git/tag "v1.0.3"
+                                                     :git/sha "46a3ac1"}}
+   :jvm-opts["-Dmigratus.config.path=migrations"]
+   :main-opts ["-m" "clj-migratus"]}}}
