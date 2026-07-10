@@ -11,12 +11,8 @@
   (jdbc/get-connection (get-in ds/*system* [::ds/instances :db :datasource])))
 
 (def potato-schema
-  ;; TODO donut-generated remove this
-  {:example-entity {:prefix   :ee
-                    :generate {:schema [:map
-                                        [:id pos-int?]
-                                        [:description string?]]}
-                    :fixtures {:table-name "example_entity"}}})
+  ;; entries are added here by `donut generate entity-scaffold <name>`
+  {})
 
 (def datapotato-db
   {:schema   potato-schema
@@ -24,6 +20,6 @@
    :fixtures (merge dnj/config
                     {:get-connection (fn [_] (db-connection))
                      :setup          (fn [{{:keys [connection]} :fixtures}]
-                                       ;; clear tables
-                                       (jdbc/execute! connection ["DELETE FROM example_entity"])
-                                       )})})
+                                       ;; clear every schema table so each test run starts fresh
+                                       (doseq [{{:keys [table-name]} :fixtures} (vals potato-schema)]
+                                         (jdbc/execute! connection [(str "DELETE FROM " table-name)])))})})

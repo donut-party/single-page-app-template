@@ -27,4 +27,15 @@
                               devtools.preload]
             :hud             #{:errors}
             :reload-strategy :full
-            :ignore-warnings true}}}}
+            :ignore-warnings true}}
+
+          ;; production build, used by `npm run release` (the :dev build
+          ;; pins :optimizations :none and can't be released)
+          :app
+          {:target           :browser
+           :output-dir       "frontend-target/app/public/js"
+           :asset-path       "/js"
+           :compiler-options {:warnings {:invalid-arithmetic false}}
+           :modules
+           {:main {:entries [{{top/ns}}.{{main/ns}}.frontend.core]
+                   :init-fn {{top/ns}}.{{main/ns}}.frontend.core/init}}}}}

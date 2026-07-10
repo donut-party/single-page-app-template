@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "shadow:watch": "shadow-cljs watch dev ext",
+    "shadow:watch": "shadow-cljs watch dev",
     "shadow:release": "shadow-cljs release app",
     "tailwind:watch": "tailwindcss -i ./src/css/tailwind.css -o ./resources/public/css/main.css --watch",
+    "tailwind:release": "tailwindcss -i ./src/css/tailwind.css -o ./resources/public/css/main.css --minify",
     "dev": "run-p -l *:watch",
     "release": "run-s *:release"
   },
