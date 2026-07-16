@@ -22,11 +22,6 @@
 
 (defn- restart [ns]
   (fn [{:keys [path]}]
-    ;; NOTE this binding is load-bearing: tools.namespace's refresh
-    ;; (called by dsr/restart) set!s *ns*, which throws
-    ;; "Can't change/establish root binding of: *ns* with set" on
-    ;; threads without a *ns* thread binding — and beholder invokes
-    ;; this callback on such a thread
     (binding [*ns* ns]
       (restart* path))))
 
